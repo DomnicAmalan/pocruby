@@ -7,8 +7,8 @@ class SharksController < ApplicationController
   end
 
   # GET /sharks/1 or /sharks/1.json
-  def show
-  end
+  def show  
+  end 
 
   # GET /sharks/new
   def new
@@ -59,7 +59,11 @@ class SharksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shark
-      @shark = Shark.find(params[:id])
+      begin 
+        @shark = Shark.find(params[:id])
+      rescue => null
+      end
+        #... error handler
     end
 
     # Only allow a list of trusted parameters through.
